@@ -14,7 +14,7 @@ import routerDeportes from './routers/deportes_routes.js';
 //Login con Google
 import session from 'express-session';
 import passport from 'passport';
-import './src/config/passport.js';
+import './config/passport.js';
 import authRoutes from './routers/authRoutes.js';
 
 dotenv.config();
