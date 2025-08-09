@@ -19,6 +19,9 @@ import authRoutes from './routers/authRoutes.js';
 
 dotenv.config();
 
+// Inicializaciones
+const app = express();
+
 // Configurar sesiones
 app.use(session({
     secret: 'claveSuperSecreta123', // cambia esto por una clave segura
@@ -30,8 +33,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Inicializaciones
-const app = express();
 
 //module.exports = app;
 
