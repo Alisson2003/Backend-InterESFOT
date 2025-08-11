@@ -17,6 +17,6 @@ router.post('/login',login)
 router.get('/perfil',verificarTokenJWT,perfil)
 router.put('/administrador/:id',verificarTokenJWT,actualizarPerfil)
 
-router.put('/actualizarpassword',verificarTokenJWT,actualizarPassword)
+router.put('/actualizarpassword/:id',verificarTokenJWT,actualizarPassword)
 
 export default router

@@ -1,4 +1,4 @@
-import express from 'express';
+/* import express from 'express';
 import passport from 'passport';
 import { loginSuccess, loginFailed } from '../controllers/authController.js';
 
@@ -23,3 +23,19 @@ router.get('/failed', loginFailed);
 
 export default router;
 
+*/
+
+const express = require('express');
+const router = express.Router();
+const { loginUser, loginEstudiante, googleLogin } = require('../controllers/authController');
+
+// Ruta para login usuario general
+router.post('/login', loginUser);
+
+// Ruta para login estudiante (cuando password contiene 'POLI')
+router.post('/estudiante/login', loginEstudiante);
+
+// Ruta para login con Google
+router.post('/auth/google-login', googleLogin);
+
+module.exports = router;
