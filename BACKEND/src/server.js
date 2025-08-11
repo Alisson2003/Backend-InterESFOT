@@ -100,7 +100,7 @@ import routerEstudiante from './routers/estudiante_routes.js';
 import routerDeportes from './routers/deportes_routes.js';
 
 // Importar las rutas de autenticación (equivalente a require('./routes/auth'))
-import authRoutes from './routes/authRoutes.js';
+import authRoutes from './routers/authRoutes.js';
 
 // Login con Google
 /*import session from 'express-session';
