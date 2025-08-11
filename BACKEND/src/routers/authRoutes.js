@@ -25,7 +25,8 @@ export default router;
 
 */
 
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
 const { loginUser, loginEstudiante, googleLogin } = require('../controllers/authController');
 
