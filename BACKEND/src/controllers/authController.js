@@ -15,7 +15,7 @@
 
 import jwt from 'jsonwebtoken';
 import { OAuth2Client } from 'google-auth-library';
-import User from '../models/User.js'; // Importa con .js al final en ESM
+import User from '../models/Usuario.js'; // Importa con .js al final en ESM
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
