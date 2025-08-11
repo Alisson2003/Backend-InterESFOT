@@ -39,3 +39,5 @@ router.post('/estudiante/login', loginEstudiante);
 router.post('/auth/google-login', googleLogin);
 
 module.exports = router;
+
+export default router;
