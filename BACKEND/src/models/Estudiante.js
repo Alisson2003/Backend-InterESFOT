@@ -57,10 +57,10 @@ const estudianteSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Administrador',
     },
-    deportes: [{
+    /* deportes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Deporte'
-    }]
+    }*/]
 }, {
     timestamps: true
 });
