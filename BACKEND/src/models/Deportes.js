@@ -28,17 +28,27 @@ const deporteSchema = new Schema({
     }
     },
 
-/*horario: {
-        type: String,
-        required: true,
-        trim: true
-    },                                                // esto va ir en estudiantes para agregar
-    lugar: {
+ horarioDeporte: {
         type: String,
         required: true,
         trim: true
     },
-*/                             
+    lugarDeporte: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    tipoDeporte: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    descripcionDeporte: {
+        type: String,
+        required: true,
+        trim: true
+    },
+                             
     {
     timestamps: true
 });
