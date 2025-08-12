@@ -79,12 +79,12 @@ const detalleEstudiante = async(req,res)=>{
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el administrador ${id}`});
     const estudiante = await Estudiante.findById(id).select("-createdAt -updatedAt -__v").populate('administrador','_id nombre apellido')
-
+/*
     const deportes = await deportes.find().where('estudiante').equals(id)
     res.status(200).json({
         estudiante,
         deportes
-    })
+    })*/
 }
 
 
