@@ -73,7 +73,7 @@ const estudianteSchema = new Schema({
         trim: true
     }
 
-    // agrego el horario y el lugar
+    // agrego el horario y el lugar, tipoDeporte
 
 
 
