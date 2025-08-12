@@ -1,8 +1,8 @@
 import Deporte from "../models/Deportes.js"
 import mongoose from "mongoose"
-import { stripe } from "stripe"
+import Stripe from "stripe"
 
-const stripe = new('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const registrarDeporte = async (req,res)=>{
     const {estudiante} = req.body
@@ -25,8 +25,8 @@ const pagarDeporte = async (req, res) => {
     try {
 
         const deporte = await Deporte.findById(treatmentId).populate('estudiante')
-        if (!deporte) return res.status(404).json({ message: "Deporte no encontrado" })
-        if (deporte.estadoPago === "Pagado") return res.status(400).json({ message: "Este Deporte ya fue pagado" })
+        if (!deporte) return res.status(404).json({ message: "Uniforme deportivo no encontrado" })
+        if (deporte.estadoPago === "Pagado") return res.status(400).json({ message: "Este uniforme deportivo ya fue pagado" })
         if (!paymentMethodId) return res.status(400).json({ message: "paymentMethodId no proporcionado" })
 
         let [cliente] = (await stripe.customers.list({ email:deporte.emailEstudiante, limit: 1 })).data || [];
@@ -53,7 +53,7 @@ const pagarDeporte = async (req, res) => {
             return res.status(200).json({ msg: "El pago se realizó exitosamente" })
         }
     } catch (error) {
-        res.status(500).json({ msg: "Error al intentar pagar el deporte", error });
+        res.status(500).json({ msg: "Error al intentar pagar el uniformde de deporte", error });
     }
 }
 
