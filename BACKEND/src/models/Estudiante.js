@@ -79,13 +79,13 @@ const estudianteSchema = new Schema({
     },
 
     // agrego el horario y el lugar, tipoDeporte, descripcionDeporte
-    
+    /*
     deportes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Deporte'
         }]
     }, {
-    timestamps: true
+    timestamps: true*/
 });
 
 estudianteSchema.methods.encrypPassword = async function(password){
