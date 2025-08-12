@@ -8,6 +8,6 @@ router.post('/deportes/registro',verificarTokenJWT,registrarDeporte)
 
 router.delete('/deportes/:id',verificarTokenJWT,eliminarDeporte)
 
-router.post('/deportes/pago',verificarTokenJWT,pagarDeporte)
+router.post('/deportes/pago',pagarDeporte)
 
 export default router

@@ -74,7 +74,7 @@ const listarEstudiantes = async (req,res)=>{
         res.status(200).json(estudiantes)
     }
 }
-
+/*
 const detalleEstudiante = async(req,res)=>{
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el administrador ${id}`});
@@ -84,8 +84,33 @@ const detalleEstudiante = async(req,res)=>{
     res.status(200).json({
         estudiante,
         deportes
-    })*/
-}
+    })
+}*/
+
+const detalleEstudiante = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ msg: `Lo sentimos, no existe el administrador ${id}` });}
+
+    const estudiante = await Estudiante.findById(id).select("-createdAt -updatedAt -__v").populate('administrador', '_id nombre apellido');
+
+    if (!estudiante) {
+        return res.status(404).json({ msg: "Estudiante no encontrado" });
+    }
+
+    const deportes = await Deportes.find().where('estudiante').equals(id);
+
+    if (deportes.length > 0) {
+        return res.status(200).json({
+            estudiante,
+            deportes
+        });
+    }
+
+    // Si no hay deportes, solo devolvemos el estudiante
+    return res.status(200).json(estudiante);
+};
 
 
 const eliminarEstudiante = async (req,res)=>{
@@ -96,7 +121,6 @@ const eliminarEstudiante = async (req,res)=>{
     await Estudiante.findByIdAndUpdate(req.params.id,{periodoEstudiante:String.parse(periodoEstudiante),estadoEstudiante:false})
     res.status(200).json({ msg: "Periodo del estudiante registrado y estado actualizado exitosamente" });
 }
-
 
 
 const actualizarEstudiante = async(req,res)=>{

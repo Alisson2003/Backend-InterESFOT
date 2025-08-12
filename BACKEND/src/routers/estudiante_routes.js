@@ -13,7 +13,7 @@ router.post("/estudiante/registro",verificarTokenJWT, registrarEstudiante)
 
 router.get("/estudiante",verificarTokenJWT,listarEstudiantes)
 
-router.get("/estudiante/:id",verificarTokenJWT, detalleEstudiante)
+router.get("/estudiante/:id", detalleEstudiante)
 
 router.delete("/estudiante/eliminar/:id", verificarTokenJWT,eliminarEstudiante)
 

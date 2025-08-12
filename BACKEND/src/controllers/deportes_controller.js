@@ -1,7 +1,8 @@
 import Deporte from "../models/Deportes.js"
 import mongoose from "mongoose"
 import { Stripe } from "stripe"
-const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`)
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const registrarDeporte = async (req,res)=>{
     const {estudiante} = req.body
@@ -43,7 +44,7 @@ const pagarDeporte = async (req, res) => {
             customer: cliente.id,
             automatic_payment_methods: {
                 enabled: true,
-                allow_redirects: "never"
+                //allow_redirects: "never"
             }
         })
 
