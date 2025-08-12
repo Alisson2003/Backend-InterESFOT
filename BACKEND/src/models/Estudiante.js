@@ -67,7 +67,7 @@ const estudianteSchema = new Schema({
         required: true,
         trim: true
     },
-     nombreDeporte: {
+     tipoDeporte: {
         type: String,
         required: true,
         trim: true
