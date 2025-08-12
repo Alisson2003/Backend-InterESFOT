@@ -1,11 +1,7 @@
 import mongoose, {Schema,model} from 'mongoose'
 
 const deporteSchema = new Schema({
-    nombre: {
-        type: String,
-        required: true,
-        trim: true
-    },
+   
     descripcion: {
         type: String,
         required: true,
