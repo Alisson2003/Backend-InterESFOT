@@ -57,6 +57,22 @@ const estudianteSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Administrador',
     },
+    horario: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    lugar: {
+        type: String,
+        required: true,
+        trim: true
+    }
+
+    // agrego el horario y el lugar
+
+
+
+    
     /* deportes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Deporte'
