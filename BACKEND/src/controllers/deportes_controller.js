@@ -1,6 +1,6 @@
 import Deporte from "../models/Deportes.js"
 import mongoose from "mongoose"
-import { Stripe } from "stripe"
+import { stripe } from "stripe"
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
