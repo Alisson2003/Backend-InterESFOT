@@ -1,12 +1,11 @@
 import mongoose, {Schema,model} from 'mongoose'
 
 const deporteSchema = new Schema({
-   nombre:{
+    nombre:{
         type:String,
         require:true,
         trim:true
     },
-   
     descripcion: {
         type: String,
         required: true,
@@ -39,12 +38,7 @@ const deporteSchema = new Schema({
         required: true,
         trim: true
     },
-*/
-
-
-
-                                 
-                                 
+*/                             
     {
     timestamps: true
 });

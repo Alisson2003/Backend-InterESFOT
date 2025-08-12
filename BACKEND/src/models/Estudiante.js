@@ -76,14 +76,14 @@ const estudianteSchema = new Schema({
         type: String,
         required: true,
         trim: true
-    }
+    },
 
     // agrego el horario y el lugar, tipoDeporte, descripcionDeporte
     
-    /* deportes: [{
+    deportes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Deporte'
-        }]*/
+        }]
     }, {
     timestamps: true
 });
