@@ -16,16 +16,6 @@ const deporteSchema = new Schema({
         ref: 'Estudiante',
         required: true
     },
-    horario: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    lugar: {
-        type: String,
-        required: true,
-        trim: true
-    },
     precioUniforme: {
         type: Number,
         required: true,
@@ -36,7 +26,25 @@ const deporteSchema = new Schema({
         enum: ['Pendiente', 'Pagado'],
         default: 'Pendiente'
     }
-    }, {
+    },
+
+/*horario: {
+        type: String,
+        required: true,
+        trim: true
+    },                                                // esto va ir en estudiantes para agregar
+    lugar: {
+        type: String,
+        required: true,
+        trim: true
+    },
+*/
+
+
+
+                                 
+                                 
+    {
     timestamps: true
 });
 export default model('Deporte', deporteSchema);
