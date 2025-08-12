@@ -1,21 +1,20 @@
-// Requerir los módulos
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import routerAdministrador from './routers/administrador_routes.js';
-//Director
+
+//Estudiante
 import cloudinary from 'cloudinary'
 import fileUpload from "express-fileupload"
 import routerEstudiante from './routers/estudiante_routes.js';
 
-// Importar las rutas de deportes
+//Deportes
 import routerDeportes from './routers/deportes_routes.js';
 
 //Login con Google
 import session from 'express-session';
-import passport from 'passport';
-import './config/passport.js';
-import authRoutes from './routers/authRoutes.js';
+import passport from './config/passport.js';
+import authRoutes from './routes/auth_routes.js';
 
 dotenv.config();
 
@@ -23,10 +22,15 @@ dotenv.config();
 const app = express();
 
 // Configurar sesiones
+app.use(cors({
+    origin: "https://deportpoli.netlify.app",
+    credentials: true
+}));
+
 app.use(session({
-    secret: 'claveSuperSecreta123', // cambia esto por una clave segura
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 // Inicializar passport
@@ -39,14 +43,15 @@ app.use(passport.session());
 // Configuraciones 
 app.use(cors()); // Permitir solicitudes desde cualquier origen
 
+
 // Middlewares 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // Para poder recibir datos en formato JSON y URL-encoded
+// Para poder recibir datos en formato JSON y URL-encoded
+app.use(express.urlencoded({ extended: true })); 
 
-// Configuración del puerto
 app.set('port', process.env.PORT || 3000);
 
-// Inicializaciones
+// Configuración de Cloudinary
 cloudinary.config({
     cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
     api_key:process.env.CLOUDINARY_API_KEY,
@@ -70,7 +75,9 @@ app.use('/api',routerEstudiante);
 // Rutas para deportes
 app.use('/api',routerDeportes);
 
+//Ruta Login Google
 app.use('/auth', authRoutes);
+
 
 // Rutas 
 app.get('/', (req, res) => {

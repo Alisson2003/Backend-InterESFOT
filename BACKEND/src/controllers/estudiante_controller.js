@@ -63,7 +63,6 @@ const registrarEstudiante= async(req,res) => {
 }
 
 
-
 const listarEstudiantes = async (req,res)=>{
     if (req.estudianteBDD?.rol ==="estudiante"){
         const estudiantes = await Estudiante.find(req.estudianteBDD._id).select("-salida -createdAt -updatedAt -__v").populate('administrador','_id nombre apellido')
