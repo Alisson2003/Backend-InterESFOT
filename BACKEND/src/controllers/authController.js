@@ -2,13 +2,13 @@
 const login = async (req, res) => {
   const { email, password } = req.body;
 
-  // Buscar usuario Veterinario o Paciente
-  let usuario = await Veterinario.findOne({ email });
-  let rol = "veterinario";
+  // Buscar usuario 
+  let usuario = await Administrador.findOne({ email });
+  let rol = "administrador";
 
   if (!usuario) {
-    usuario = await Paciente.findOne({ email });
-    rol = "paciente";
+    usuario = await Estudiante.findOne({ email });
+    rol = "estudiante";
   }
 
   if (!usuario) return res.status(404).json({ msg: "Usuario no encontrado" });
