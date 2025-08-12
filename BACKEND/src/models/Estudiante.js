@@ -71,9 +71,14 @@ const estudianteSchema = new Schema({
         type: String,
         required: true,
         trim: true
+    },
+     descripcionDeporte: {
+        type: String,
+        required: true,
+        trim: true
     }
 
-    // agrego el horario y el lugar, tipoDeporte
+    // agrego el horario y el lugar, tipoDeporte, descripcionDeporte
 
 
 
