@@ -2,7 +2,8 @@ import Deporte from "../models/Deportes.js"
 import mongoose from "mongoose"
 import Stripe from "stripe"
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
+
 
 const registrarDeporte = async (req,res)=>{
     const {estudiante} = req.body
